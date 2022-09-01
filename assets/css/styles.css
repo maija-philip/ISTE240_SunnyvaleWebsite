@@ -1,0 +1,604 @@
+/* import Roboto font at weights 400 and 700 */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* creating my color variables */
+:root {
+  --white: #F7F7F7;
+  --grey: #EDEDED;
+  --black: #020E26;
+  --theme: #507526;
+  --theme-og: #7BB03E;
+
+  /* form error colors */
+  --error-red: #b8001f;
+  --error-pink: #ffccd5;
+}
+
+/* page formating */
+
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: var(--white);
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  transition: 0.25s;
+}
+
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+/* Text formatting */
+p, a, figcaption, input, button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  color: var(--black);
+  line-height: 1.75em;
+}
+
+a {color: var(--theme);}
+
+a {transition: all 0.25s linear;}
+a:hover {color: var(--theme-og);}
+
+h1, h2 {
+  font-size: 13vw;
+  text-transform: lowercase;
+  color: var(--black);
+}
+h2 {
+  font-size: 3em;
+  color: var(--theme);
+}
+h3 {color: var(--theme);}
+
+.white {color: var(--white);}
+.left {text-align: left;}
+
+header h1 {margin: -0.25em auto 0.4em auto;}
+
+.date, #lastModified {
+  font-style: italic;
+  color: #7e8781 /* dark grey */;
+  font-family: monospace;
+}
+.name {
+  font-weight: bold;
+}
+
+/* NAV STYLES */
+nav {
+  width: 100vw;
+  height: 80px;
+  background-color: var(--white);
+  z-index: 10;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.5s;
+  border: none;
+  border-bottom: 1px solid var(--grey);
+}
+
+/* styling main block of content in nav */
+#nav-format {
+  display: block;
+  margin: auto;
+  text-align: left;
+  margin: auto 20px auto auto;
+}
+
+nav a, nav p {
+  color: var(--black);
+  text-decoration: none;
+}
+
+.active {color: var(--theme);}
+
+/* code from lecture */
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav li li a {
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+}
+nav li {
+  float: left;
+  width: auto;
+  margin: 0 10px;
+  cursor: default;
+  border: none;
+}
+nav li li {
+  display: block;
+  float: none;
+  border: none;
+  color: var(--white);
+}
+nav li li a {color: var(--white);}
+nav li li a:hover {color: var(--black);}
+
+nav li ul{
+  display: none;
+  position: absolute;
+  font-weight: normal;
+  padding: 1em 0.5em;
+  border: none;
+  background-color: var(--theme);
+}
+/* make it work! */
+nav li:hover ul{
+  display: block;
+}
+/* make it look good once it shows up! */
+nav li li a:hover {
+  border: none;
+  cursor:pointer;
+}
+
+/* end of code from lecture */
+
+
+
+/* floating buttons stuff (hamburger/close btn/etc) */
+.floating-button {
+  display: block;
+  position: absolute;
+  top: 20px; right: 20px;
+  width: 60px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: all 0.25s linear;
+}
+
+.floating-button:hover {
+  transform: rotate(20deg);
+}
+
+#hamburger {background-image: url("../img/hamburger.svg"); display: block;}
+#close {background-image: url("../img/close.svg"); display: none;}
+#logo {
+  display: block;
+  top: 12px;
+  left: 20px;
+  background-image: url("../img/logo.png");
+  width: 60px;
+  height: 60px;
+  z-index: 0;
+}
+
+#onBanjo #hamburger {
+  background-image: url("img/hamburger.svg");
+}
+#onBanjo #close {
+  background-image: url("img/close.svg");
+}
+#onBanjo #logo {
+  background-image: url("img/logo.png");
+}
+
+/* header styles */
+header {
+  margin: 0 !important;
+  background-image: url("../img/home/home_slideshow_1.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 50vh;
+  transition: 1s ease-in;
+}
+
+/* styling special headers */
+#home {height: 100vh;}
+.none, .none .tint {background-image: none; background-color: var(--white);}
+#rest {width: 70%; margin: auto;}
+
+/* adding a tint to photo headers */
+.tint {
+  padding: 5em;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+
+
+/* main styles */
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; /* 13 equal width columns */
+  grid-column-gap: 1.25vw;
+  grid-row-gap: 10em;
+  width: 100vw;
+  margin: auto;
+}
+/* assigning grid columns */
+.first_half {grid-column: 1/7;}
+.second_half {grid-column: 8/14;}
+.first_half_text {grid-column: 2/7;}
+.second_half_text {grid-column: 8/13;}
+.first_trio {grid-column: 1/4;}
+.last_trio {grid-column: 11/14;}
+.trio_block {grid-column: 5/10;}
+.long_img {grid-column: 1/14;}
+.long_img_text, form, #thank_you div {grid-column: 4/11 }
+.grading {grid-column: 3/12;}
+
+#comments {
+  display: block;
+  padding: 60px 10vw;
+  margin: auto;
+}
+
+/* things that should disapear on mobile appear not on mobile */
+.disapear {display: block;}
+
+/* format the img */
+.half_img, .img_row, .trio_img, .long_img, #slideshow_img {
+  width: 100%;
+  height: 70vh;
+  background-color: var(--grey);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* special formating for specific img */
+.img_row {height: 14vw;}
+.img_row + p {text-align: center;}
+.long_img {height: 20em;}
+#offices .long_img {height: 60vh;}
+#history_main {margin-top: 5em;}
+
+/* text block styling */
+.half_block, .trio_block, .long_img_text {margin: auto;}
+#thank_you {margin-top: 5em;}
+
+/* styling different levels of lists */
+/* main level */
+ol.decimal {
+  list-style-type: decimal;
+  color: var(--theme);
+  font-weight: bold;
+}
+/* indented by one */
+ol.letter {
+  list-style-type: lower-alpha;
+  color: var(--black);
+   font-weight: normal;
+}
+/* indented again */
+ol.roman {
+  list-style-type: lower-roman;
+  color: var(--black);
+  font-weight: normal;
+}
+/* adding spaces */
+li {margin: 0.5em auto;}
+ol {margin: 1em auto;}
+
+/* setting img */
+#los_altos {grid-column: 1/4;}
+#los_altos div {background-image: url("../img/home/home_gallery1.jpeg");}
+
+#safeway {grid-column: 5/8;}
+#safeway div {background-image: url("../img/home/home_gallery2.jpeg");}
+
+#santa_cruz {grid-column: 9/11;}
+#santa_cruz div {background-image: url("../img/home/home_gallery3.jpg");}
+
+#dalles {grid-column: 12/14;}
+#dalles div {background-image: url("../img/home/home_gallery4.jpg");}
+
+
+#riya_santa_cruz {background-image: url("../img/home/things_to_do1.jpg");}
+#riya_phoebe {background-image: url("../img/home/things_to_do2.jpg");}
+#food_teaser {background-image: url("../img/home/fruit.jpg");}
+#history {background-image: url("../img/home/pails.jpg");}
+#baylands {background-image: url("../img/things_to_do_baylandspark.jpg");}
+#murphy {background-image: url("../img/home/home_slideshow_2.jpg"); background-position: top;}
+#apricot_museum {background-image: url("../img/things_to_do_orchard.jpg");}
+#sophie {background-image: url("../img/thing_relax.jpg");}
+#sf {background-image: url("../img/things_to_do_sanfran.jpg");}
+#beach {background-image: url("../img/things_santa_cruz.jpg");}
+#santana {background-image: url("../img/santana_row.jpg");}
+#thanks_head {background-image: url("img/thx.jpg"); background-position: top;}
+#google {background-image: url("../img/offices_google.jpeg");}
+#apple {background-image: url("../img/offices_apple.jpeg");}
+#tesla {background-image: url("../img/office_tesla.jpeg");}
+#rancho {background-image: url("../img/hikes_rancho.jpg");}
+#stevens {background-image: url("../img/hikes_stevensckeek.jpeg");}
+#secret_tunnel {background-image: url("../img/hikes_stutz.jpg");}
+#drives {background-image: url("../img/hiker_drives.jpg");}
+#bikes {background-image: url("../img/bikes.jpg");}
+#farmers_market_img {background-image: url("../img/farmers_market/farmers market.jpg");}
+#flip {background-image: url("../img/farmers_market/veggies.jpg");}
+#strawberries {background-image: url("../img/farmers_market/strawberry.jpg");}
+#naanwrap {background-image: url("../img/farmers_market/naanwrap.jpg");}
+#apricotsss {background-image: url("../img/farmers_market/apricots_blenheim.jpeg");}
+#history {background-image: url("../img/history_skyline.jpg");}
+#farm {background-image: url("../img/history_farms.jpg");}
+#big_tech {background-image: url("../img/hisory_sanjose.jpg");}
+#about {background-image: url("../img/about/about_header.jpg");}
+#handstand_clover {background-image: url("../img/about/about_fav1.jpg");}
+#handstand_lights {background-image: url("../img/about/about_fav2.jpg");}
+#me_sunnyvale {background-image: url("../img/about/about_history.jpg");}
+#grading {background-image: url("../img/grading.jpg");}
+#rest_tease_food {background-image: url("../img/food_rest.jpg");}
+#foood {background-image: url("../img/food_header.jpg");}
+#food_farm_market {background-image: url("../img/food_farm.jpg");}
+
+#map iframe {width: 100%;height: 100%;}
+
+
+/* restaurant slideshow styles */
+.slideshow_btn {
+  display: block;
+  margin: auto;
+  width: 60px;
+  height: 60px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../img/back.svg");
+  background-color: var(--white);
+  grid-column: 1/2;
+}
+#forward {background-image:  url("../img/forward.svg");grid-column: 13/14;}
+#me_forward {background-image:  url("../img/forward.svg");grid-column: 13/14;}
+
+#slideshow_img, #me_slideshow_img{
+  height: 50vh;
+  grid-column: 2/7;
+  background-image:  url("../img/restaurants/tofu_house.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#me_slideshow_img{grid-column: 2/13; background-image:  url("../img/about/about1.jpg");}
+.slideshow_text {grid-column: 8/13; margin: auto;}
+
+/* footer */
+.footer_logo {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url("../img/logo.png");
+  width: 20vw;
+  height: 20vw;
+  margin: auto auto 1em auto;
+}
+#footerBanjo .footer_logo {background-image: url("img/logo.png");}
+
+footer {
+  margin-top: 100px;
+  width: 100vw;
+  padding: 20px;
+  text-align: center;
+}
+
+/* FORM STYLES */
+#form {margin-top: -10vw;}
+
+
+#heading_question {
+  border-bottom: 2px solid var(--theme);
+  margin-bottom: 2em;
+}
+
+.required {color: var(--theme);}
+
+input {
+  background-color: var(--grey);
+  border: none;
+  border-bottom: 2px solid var(--theme);
+  padding: 10px 20px;
+}
+
+/* styling radio and checkboxes */
+fieldset {
+  margin: 2em auto;
+  border: none;
+}
+fieldset legend {margin-bottom: 0.5em;}
+fieldset input {margin: 1.5em 0.5em 0.5em auto;}
+
+fieldset input, fieldset label {
+  background-color: var(--grey);
+  padding: 0.5em 1em;
+  border-radius: 1em;
+}
+
+
+fieldset input:hover, fieldset label:hover {background-color: var(--theme);}
+
+fieldset input:checked, fieldset input:checked ~ label {background-color: var(--theme);}
+
+/* making the custom slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 60%;
+  height: 1px;
+  margin: 1em;
+  background: var(--white);
+  outline: none;
+  border:none;
+  border-bottom: 2px solid var(--theme);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1em;
+  height: 1em;
+  background: var(--theme);
+  border-radius: 1em;
+  cursor: pointer;
+  transform: translateY(0.7em);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 1em;
+  height: 1em;
+  background: var(--theme);
+  border-radius: 1em;
+  cursor: pointer;
+  transform: translateY(0.7em);
+}
+
+/* Styling buttons */
+
+button[type="submit"], .button {margin-top: 2em;}
+
+button, .button {
+  display: inline-block;
+  background-color: var(--theme);
+  color: var(--white);
+  border: none;
+  padding: 1em 2em;
+  font-weight: bold;
+  text-transform: lowercase;
+  text-decoration: none;
+  margin: 1em;
+  margin-left: 0;
+}
+button:hover, .button:hover {background-color: var(--theme-og);color: var(--black);}
+
+.white_btn {
+  background-color: var(--white);
+  color: var(--theme);
+}
+.white_btn:hover {color: var(--white); background-color: var(--theme);}
+
+
+
+/* HERE ARE THE MEDIA QUERIES */
+
+/* when screen size is SMALLER than 800px nav and small changes */
+@media only screen and (max-width: 800px) {
+
+  /* nav */
+  nav {
+    width: 0vw;
+    height: 100vh;
+  }
+
+  #nav-format {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+  }
+
+  nav a, nav p {margin: 2vh 0; font-weight: bold;}
+
+  #hamburger {display: block;}
+  #close {display: none;}
+  #logo {display: none;}
+
+  main {margin-top: 0px;}
+
+  /* styling the drop downs to appear */
+  nav li li a {color: var(--black); font-weight: normal;}
+
+  nav li ul{
+    display: block;
+    position: static;
+
+    padding: 1em 0.5em;
+    background-color: var(--white);
+  }
+
+
+
+}
+
+
+/* when screen size is SMALLER than 700px grid disapear */
+@media only screen and (max-width: 700px) {
+
+  /* change grid */
+  main {
+    grid-template-columns: 100%; /* 1 column */
+    width: 80%;
+    margin: 5em auto;
+    grid-row-gap: 4em;
+  }
+  /* make everything in the first column because the grid is only one column */
+  .first_half, .second_half, .first_half_text, .second_half_text, .first_trio, .last_trio, .trio_block, .long_img, .long_img_text, #los_altos, form, #thank_you div, .grading {grid-column: 1;}
+
+  .img_row {height: 30vw;}
+
+  /* things that I don't need on mobile are gone */
+  .disapear {display: none;}
+
+  /* make restaurant slideshow grid work */
+  main.restaurant_main {
+    grid-template-columns: 10% 80% 10%; /* 1 column */
+    width: 100%;
+    grid-column-gap: 0;
+    grid-row-gap: 1em;
+  }
+
+  /* format where things are on this grid */
+  #forward, #me_forward {grid-column: 3/4;}
+  #back, #me_back {grid-column: 1/2;}
+  #slideshow_img, #me_slideshow_img {grid-column: 2/3;}
+  .slideshow_text {grid-column: 2/3;}
+  .slideshow_btn {
+     margin: auto 0;
+     width: 100%;
+     height: auto;
+     padding: 2em 0;
+     grid-row: 1/3;
+  }
+  #me_back, #me_forward {grid-row: 8/9;}
+
+  /* all the main content should be in the middle column */
+  main.about_main .long_img_text, main.about_main .first_trio, main.about_main .trio_block, main.about_main .last_trio, main.about_main .first_half, main.about_main .second_half_text {grid-column: 2/3;}
+  header {height: auto; min-height: 50vh;}
+}
+
+/* when screen size is SMALLER than 600px fix header fonts */
+@media only screen and (max-width: 600px) {
+
+  /* make home header font smaller */
+  h1 {font-size: 17vw;}
+  h2 {font-size: 2em;}
+
+}
+
+/* when screen size is SMALLER than 300px fix header spacing */
+@media only screen and (max-width: 300px) {
+
+  /* make home header spacing bigger */
+  header h1 {margin: 0em auto 1em auto;}
+
+
+}

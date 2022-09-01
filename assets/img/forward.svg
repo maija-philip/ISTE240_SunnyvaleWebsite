@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 100 100">
+  <defs>
+    <clipPath id="clip-forward">
+      <rect width="100" height="100"/>
+    </clipPath>
+  </defs>
+  <g id="forward" clip-path="url(#clip-forward)">
+    <path id="Polygon_4" data-name="Polygon 4" d="M36.5,0,73,42H0Z" transform="translate(71 13.5) rotate(90)" fill="#507526"/>
+  </g>
+</svg>
