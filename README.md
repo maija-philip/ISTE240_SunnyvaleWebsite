@@ -6,6 +6,7 @@ ISTE 240 Web and Mobile II
 
 
 - Designed and built an intuitive, accessible, responsive and aesthetically pleasing interface
-- Built a navigation system with dropdowns that changes to hamburger slide out navigation of mobile devices
-- Used PHP and MySQL to create a database in order to create a public comments section and a submittable form that emails responses
+- Built a navigation system that changes from dropdowns on desktop systems to a hamburger slide out on mobile devices
+- Implemented MySQL database to collect public comments and PHP script to create a Modular Website
+
 
